@@ -22,6 +22,10 @@ public class ProductResponseDto {
         return success;
     }
 
+    public void setSuccess(boolean success){
+        this.success = success;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -32,6 +36,10 @@ public class ProductResponseDto {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
     }
 
     public String getName() {

@@ -20,8 +20,16 @@ public class ProductRequestDto {
         return command;
     }
 
+    public void setCommand(String command){
+        this.command = command;
+    }
+
     public long getId() {
         return id;
+    }
+
+    public void setId(){
+        this.id = id;
     }
 
     public String getName() {
