@@ -1,14 +1,15 @@
 package protocol;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dto.ProductRequestDto;
 import dto.ProductResponseDto;
 
 public class MessageParser {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public ProductResponseDto parseRequest(String jsonMessage){
+    public ProductRequestDto parseRequest(String jsonMessage){
         try{
-            return objectMapper.readValue(jsonMessage, ProductResponseDto.class);
+            return objectMapper.readValue(jsonMessage, ProductRequestDto.class);
         }catch (Exception e){
             throw new IllegalArgumentException("JSON 파싱 중 오류가 발생했습니다.", e);
         }
