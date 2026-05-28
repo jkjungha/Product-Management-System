@@ -7,9 +7,21 @@ public class ProductRequestDto {
     private int price;
     private int stock;
 
+    public ProductRequestDto(){
+
+    }
+
     public ProductRequestDto(String command, Long id){
         this.command = command;
         this.id = id;
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {

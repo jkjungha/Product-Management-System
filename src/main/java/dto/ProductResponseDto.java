@@ -8,10 +8,30 @@ public class ProductResponseDto {
     private int price;
     private int stock;
 
+    public ProductResponseDto(){
+
+    }
+
     public ProductResponseDto(boolean success, String message, long id){
         this.success = success;
         this.message = message;
         this.id = id;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
