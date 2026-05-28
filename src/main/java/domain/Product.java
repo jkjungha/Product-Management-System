@@ -1,27 +1,27 @@
 package domain;
 
 public class Product {
-    private long id;
+    private Long id;
     private String name;
     private int price;
     private int stock;
 
-    public Product(long id, String name, int price, int stock) {
+    public Product(){
+
+    }
+
+    public Product(Long id, String name, int price, int stock){
         this.id = id;
         this.name = name;
         this.price = price;
         this.stock = stock;
     }
 
-    public Product(String name, int price, int stock){
-        this.name = name;
-        this.price = price;
-        this.stock = stock;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
+
+    public void setId(Long id) { this.id = id; }
 
     public String getName() {
         return name;
