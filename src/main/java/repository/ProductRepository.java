@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ProductRepository {
-    private Map<Long, Product> db = new ConcurrentHashMap<>();
+    private final Map<Long, Product> db = new ConcurrentHashMap<>();
 
     //데이터 삭제
     public void deleteById(Long id) {
