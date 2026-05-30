@@ -1,7 +1,8 @@
 package common;
 
 public enum ErrorCode {
-    PRODUCT_NOT_FOUND(404, "해당 상품을 찾을 수 없습니다.");
+    PRODUCT_NOT_FOUND(404, "해당 상품을 찾을 수 없습니다."),
+    PRODUCT_ALREADY_EXISTS(404, "해당 상품이 이미 존재합니다.");
 
     private final int status;
     private final String message;
