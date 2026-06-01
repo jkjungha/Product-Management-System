@@ -6,6 +6,8 @@ import dto.ProductResponseDto;
 import exception.BusinessException;
 import service.ProductService;
 
+import java.util.List;
+
 public class ProductController {
     private final ProductService productService;
 
@@ -26,13 +28,27 @@ public class ProductController {
                         productRequestDto.getStock()
                 );
                 productService.registerProduct(product);
+
                 responseDto.setSuccess(true);
                 responseDto.setMessage("상품 등록 완료");
             } else if (command.equals("READ")) {
                 Long id = productRequestDto.getId();
-                productService.getProduct(id);
+                Product findProduct = productService.getProduct(id);
+
                 responseDto.setSuccess(true);
                 responseDto.setMessage("상품 조회 완료");
+
+                responseDto.setId(findProduct.getId());
+                responseDto.setName(findProduct.getName());
+                responseDto.setPrice(findProduct.getPrice());
+                responseDto.setStock(findProduct.getStock());
+            } else if (command.equals("READ_ALL")) {
+                List<Product> findProducts = productService.getAllProducts();
+
+                responseDto.setSuccess(true);
+                responseDto.setMessage("전체 상품 조회 완료");
+
+                responseDto.setProducts(findProducts);
             } else if (command.equals("UPDATE")) {
                 Product product = new Product(
                         productRequestDto.getId(),
@@ -41,11 +57,13 @@ public class ProductController {
                         productRequestDto.getStock()
                 );
                 productService.updateProduct(product);
+
                 responseDto.setSuccess(true);
                 responseDto.setMessage("상품 수정 완료");
             } else if (command.equals("DELETE")) {
                 Long id = productRequestDto.getId();
                 productService.deleteProduct(id);
+
                 responseDto.setSuccess(true);
                 responseDto.setMessage("상품 삭제 완료");
             } else {
@@ -58,7 +76,4 @@ public class ProductController {
         }
         return responseDto;
     }
-
-
-
 }
