@@ -1,5 +1,9 @@
 package dto;
 
+import domain.Product;
+
+import java.util.List;
+
 public class ProductResponseDto {
     private boolean success;
     private String message;
@@ -7,6 +11,8 @@ public class ProductResponseDto {
     private String name;
     private int price;
     private int stock;
+
+    private List<Product> products;
 
     public ProductResponseDto(){
 
@@ -16,6 +22,14 @@ public class ProductResponseDto {
         this.success = success;
         this.message = message;
         this.id = id;
+    }
+
+    public List<Product> getProducts(){
+        return this.products;
+    }
+
+    public void setProducts(List<Product> products){
+        this.products = products;
     }
 
     public boolean isSuccess() {
